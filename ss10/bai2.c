@@ -16,7 +16,7 @@ Node* createNode(int value) {
 }
 
 Node* createList() {
-    int values[5] = {7, 14, 21, 28, 35};
+    int values[5] = {5, 4, 3, 2, 1};
     Node* head = NULL;
     Node* tail = NULL;
 
@@ -34,18 +34,17 @@ Node* createList() {
     return head;
 }
 
-Node* printList(Node* head) {
+Node* printData(Node* head) {
     Node* current = head;
     while (current != NULL) {
-        printf("%d -> ", current->data);
+        printf("data: %d\n", current->data);
         current = current->next;
     }
-    printf("NULL\n");
     return head;
 }
 
 int main() {
     Node* list = createList();
-    printList(list);
+    printData(list);
     return 0;
 }
