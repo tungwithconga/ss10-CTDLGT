@@ -16,7 +16,7 @@ Node* createNode(int value) {
 }
 
 Node* createList() {
-    int values[5] = {5, 4, 3, 2, 1};
+    int values[5] = {5, 4, 3, 2, 1}; 
     Node* head = NULL;
     Node* tail = NULL;
 
@@ -36,27 +36,21 @@ Node* createList() {
 
 int getLength(Node* head) {
     int count = 0;
-    while (head != NULL) {
+    Node* current = head;
+    while (current != NULL) {
         count++;
-        head = head->next;
+        current = current->next;
     }
     return count;
 }
 
 Node* findMiddle(Node* head) {
-    int len = getLength(head);
-    int midIndex = len / 2;
-    if (len % 2 == 0) {
-        midIndex = len / 2;
-    } else {
-        midIndex = len / 2;
-    }
+    int length = getLength(head);
+    int midIndex = length / 2;
 
     Node* current = head;
-    int index = 0;
-    while (current != NULL && index < midIndex) {
+    for (int i = 0; i < midIndex; i++) {
         current = current->next;
-        index++;
     }
 
     return current;
@@ -64,9 +58,11 @@ Node* findMiddle(Node* head) {
 
 int main() {
     Node* list = createList();
-    Node* mid = findMiddle(list);
+    Node* middle = findMiddle(list);
 
-    int position = getLength(list) / 2 + (getLength(list) % 2 == 0 ? 1 : 0);
-    printf("Node %d: %d\n", position, mid->data);
+    int length = getLength(list);
+    int position = length / 2 + (length % 2 == 0 ? 1 : 0);
+    printf("Node %d: %d\n", position, middle->data);
+
     return 0;
 }
