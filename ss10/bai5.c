@@ -34,8 +34,8 @@ Node* createList() {
     return head;
 }
 
-Node* deleteByValue(Node* head, int target) {
-    while (head != NULL && head->data == target) {
+Node* deleteByValue(Node* head, int value) {
+    while (head != NULL && head->data == value) {
         Node* temp = head;
         head = head->next;
         free(temp);
@@ -45,7 +45,7 @@ Node* deleteByValue(Node* head, int target) {
     Node* prev = NULL;
 
     while (current != NULL) {
-        if (current->data == target) {
+        if (current->data == value) {
             prev->next = current->next;
             free(current);
             current = prev->next;
